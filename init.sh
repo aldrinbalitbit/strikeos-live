@@ -25,7 +25,7 @@ _llvm_version="20.1.2"
 # Functions
 _msg() {
     echo -e "\e[1;32m>>\e[m $1"
-    echo "$1" >> ${_build_log} 2>&1
+    echo "\n--- $1 ---" >> ${_build_log} 2>&1
 }
 
 _clone() {
@@ -33,21 +33,25 @@ _clone() {
     local dir=$2
     local branch=$3
 
-    _msg "Cloning ${url}..."
+    _msg "Cloning ${url}"
     git clone -b $branch $url $dir >> ${_build_log} 2>&1
+
+    unset url dir branch
 }
 
 _dl() {
     local url=$1
     local file=$2
 
-    _msg "Downloading ${url}..."
-    aria2c -o $file $url
+    _msg "Downloading ${url}"
+    wget -O $file $url >> ${_build_log} 2>&1
 
-    _msg "Extracting ${file}..."
+    _msg "Extracting ${file}"
     case "$file" in
         *.tar.gz) tar -xvzf "$file" >> ${_build_log} 2>&1 ;;
         *.tar.xz) tar -xvJf "$file" >> ${_build_log} 2>&1 ;;
     esac
     rm -v ${file} >> ${_build_log} 2>&1
+
+    unset url file
 }
