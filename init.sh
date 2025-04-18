@@ -4,8 +4,8 @@ _build_dir="${_work_dir}/build"
 _stages_dir="${_work_dir}/stages"
 _patches_dir="${_work_dir}/patches"
 _rootfs_dir="${_work_dir}/.rootfs"
-_rootfs_sources_dir="${_rootfs_dir}/sources"
-_rootfs_toolchain_dir="${_rootfs_dir}/toolchain"
+_sources_dir="${_rootfs_dir}/sources"
+_toolchain_dir="${_rootfs_dir}/toolchain"
 
 # build.log
 _build_log="${_rootfs_dir}/build.log"
@@ -18,7 +18,7 @@ _build_log="${_rootfs_dir}/build.log"
 #_gcc_version="trunk"
 #_uclibc_ng_version="master"
 _zlib_ng_version="2.2.4"
-_llvm_version="20.1.2"
+_llvm_version="20.1.3"
 #_rustc_version="master"
 # --- END ---
 

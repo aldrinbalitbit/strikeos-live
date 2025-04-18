@@ -1,6 +1,9 @@
 #!/bin/bash -e
 . init.sh
-mkdir -p ${_rootfs_dir} ${_rootfs_sources_dir} ${_rootfs_toolchain_dir}
+mkdir -p \
+    ${_rootfs_dir} \
+    ${_sources_dir} \
+    ${_toolchain_dir}
 
 cd "${_sources_dir}"
 
