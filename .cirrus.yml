@@ -1,0 +1,4 @@
+task:
+  name: Build
+  persistent_worker: {}
+
